@@ -6,6 +6,9 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function NavScroll() {
+
+
+
 	return (
 		<Navbar bg="dark" variant="dark" expand="lg">
 			<Container fluid>
@@ -29,7 +32,7 @@ function NavScroll() {
 							className="me-2"
 							aria-label="Search"
 						/>
-						<Button variant="outline-success">Search</Button>
+						<Button variant="outline-success" >Search</Button>
 					</Form>
 				</Navbar.Collapse>
 			</Container>
