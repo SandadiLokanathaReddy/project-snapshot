@@ -3,39 +3,41 @@
 	background-size: cover;
 }
 
-
 .heading {
 	display: block;
 	text-align: center;
 	font-family: Verdana, sans-serif;
 	font-size: 55px;
 }
-@media screen and (max-width : 768px){
+@media screen and (max-width: 768px) {
 	.heading {
 		font-size: 45px;
 	}
 }
-@media screen and (min-width : 769px){
+@media screen and (min-width: 769px) {
 	.heading {
 		font-size: 55px;
 	}
 }
-@media screen and (min-width : 2001px){
+@media screen and (min-width: 2001px) {
 	.heading {
 		font-size: 70px;
 	}
 }
 
-
 .heading-container {
-	padding: 5%;
+	padding: 4%;
 }
 
 .grid-container {
-	padding: 2% 5% 2% 5%;
+	padding: 4% 5% 4% 5%;
 	background-color: #e8e6df;
 	height: 100%;
 	background-size: 100%;
 }
 
-
+.form-container {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 3%;
+}
