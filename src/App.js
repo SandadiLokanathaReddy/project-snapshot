@@ -1,7 +1,7 @@
 import "./App.css";
 import NavScroll from "./Components/NavScroll";
 import GridContainer from "./Components/GridContainer";
-//import Album from "./Components/Album";
+import Album from "./Components/Album";
 
 function App() {
 	return (
