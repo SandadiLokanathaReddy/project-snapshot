@@ -1,27 +1,69 @@
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import axios from "axios";
+import { useState } from "react";
+//import { useEffect } from "react";
+//import OurCard from "./OurCard";
+import OurForm from "./OurForm";
+import ImageCard from "./ImageCard";
 
-function GridContainer() {
+const GridContainer = (props) => {
+	const [images, setImages] = useState([]);
+	const [keyword, setKeyword] = useState("");
+	// const [searchword, setSearchword] = useState("all");
+
+	const formSubmit = (e) => {
+		e.preventDefault();
+		getImagesData(keyword);
+		// setSearchword(keyword);
+		setKeyword("");
+	};
+
+	const getImagesData = (searchword) => {
+		axios
+			.get(
+				`https://api.unsplash.com/search/photos?page=1&per_page=20&query=${searchword}&client_id=DcatpZ9T66kFddYG90iGQQ_2EnwEWQBX83oklAEL6rQ`
+			)
+			.then((response) => {
+				setImages(response.data.results);
+			})
+			.catch((err) => {
+				console.log("Error happened while fetching images data");
+			});
+	};
+
+	// useEffect(() => {
+	// 	axios
+	// 		.get(
+	// 			`https://api.unsplash.com/search/photos?page=1&query=${searchword}&orientation=squarish&client_id=DcatpZ9T66kFddYG90iGQQ_2EnwEWQBX83oklAEL6rQ`
+	// 		)
+	// 		.then((response) => {
+	// 			setImages(response.data.results);
+	// 		})
+	// 		.catch((err) => {
+	// 			console.log("Error happened while fetching images data");
+	// 		});
+	// }, [searchword]);
+
 	return (
-		<Row xs={1} md={3} className="g-4">
-			{Array.from({ length: 9 }).map((_, idx) => (
-				<Col>
-					<Card>
-						<Card.Img variant="top" src="holder.js/100px160" />
-						<Card.Body>
-							<Card.Title>Card title</Card.Title>
-							<Card.Text>
-								This is a longer card with supporting text below
-								as a natural lead-in to additional content. This
-								content is a little bit longer.
-							</Card.Text>
-						</Card.Body>
-					</Card>
-				</Col>
-			))}
-		</Row>
+		<>
+			<OurForm
+				formSubmit={formSubmit}
+				keyword={keyword}
+				setKeyword={setKeyword}
+			/>
+			<div className="grid-container">
+				<Row xs={1} md={4} className="g-4">
+					{images.length === 0 ? (
+						<h2>Loading.....</h2>
+					) : (
+						images.map((val, idx) => {
+							return <ImageCard key={idx} imageItem={val} />;
+						})
+					)}
+				</Row>
+			</div>
+		</>
 	);
-}
+};
 
 export default GridContainer;

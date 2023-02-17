@@ -1,20 +1,21 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-
-const OurCard = () => {
+import { Card, Col } from "react-bootstrap";
+const OurCard = (props) => {
+	const { imageItem } = props;
 	return (
-		<Card style={{ width: "18rem" }}>
-			<Card.Img variant="top" src="holder.js/100px180" />
-			<Card.Body>
-				<Card.Title>Card Title</Card.Title>
-				<Card.Text>
-					Some quick example text to build on the card title and make
-					up the bulk of the card's content.
-				</Card.Text>
-				<Button variant="primary">Go somewhere</Button>
-			</Card.Body>
-		</Card>
+		<Col>
+			<Card>
+				<Card.Img variant="top" src={`${imageItem.urls.regular}`} />
+				<Card.Body>
+					<Card.Title>Card title</Card.Title>
+					<Card.Text>
+						This is a longer card with supporting text below as a
+						natural lead-in to additional content. This content is a
+						little bit longer.
+					</Card.Text>
+				</Card.Body>
+			</Card>
+		</Col>
 	);
 };
 
