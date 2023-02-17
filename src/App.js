@@ -1,6 +1,6 @@
 import "./App.css";
 import NavScroll from "./Components/NavScroll";
-import GridContainer from "./Components/GridContainer";
+// import GridContainer from "./Components/GridContainer";
 import Album from "./Components/Album";
 
 function App() {
@@ -10,8 +10,8 @@ function App() {
 			<div className="heading-container">
 				<h1 className="heading"> All Snaps</h1>
 			</div>
-			<GridContainer />
-			{/* <Album /> */}
+			{/* <GridContainer /> */}
+			<Album />
 		</div>
 	);
 }
